@@ -11,7 +11,7 @@ namespace SpotifyLibrary
         /// <summary>
         /// 
         /// </summary>
-        private int _songID;
+        private int _songID; //Det her er min nye kommentar (Emil)
         private string _songTitle;
         private string _genre; 
         private string _artist; 
