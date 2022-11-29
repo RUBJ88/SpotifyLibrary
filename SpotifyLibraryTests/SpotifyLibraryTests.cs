@@ -28,8 +28,7 @@ namespace SpotifyLibrary.Tests
          */
 
         [TestMethod]
-        [DataRow(0)]
-        [DataRow(5)]
+        [DataRow(1)]
         public void Test_SongId_Accept(int songId)
         {
             // Arrange
@@ -43,6 +42,7 @@ namespace SpotifyLibrary.Tests
             Assert.AreEqual(expectedValue, actualValue);
 
         }
+
 
 
 
