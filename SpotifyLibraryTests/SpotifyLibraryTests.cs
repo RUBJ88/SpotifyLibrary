@@ -14,12 +14,12 @@ namespace SpotifyLibrary.Tests
         /*
          *  Set up UserStory class to be testet
          */
-        private SpotifyLibrary us = null;
+        private SpotifyLibrary sp = null;
 
         [TestInitialize]
         public void BeforeEachTestMethod()
         {
-            us = new SpotifyLibrary();
+            sp = new SpotifyLibrary();
 
         }
 
@@ -28,9 +28,24 @@ namespace SpotifyLibrary.Tests
          */
 
         [TestMethod]
-        [DataRow("123")]
-        [DataRow("1234567890")]
-        public void Test_SongID_Accept(string songId);
+        [DataRow(0)]
+        [DataRow(5)]
+        public void Test_SongId_Accept(int songId)
+        {
+            // Arrange
+            int expectedValue = songId;
+
+            // Act
+            sp.SongId = songId;
+            int actualValue = sp.SongId;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+
+        }
+
+
+
 
 
 
