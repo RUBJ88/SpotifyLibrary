@@ -14,12 +14,12 @@ namespace SpotifyLibrary.Tests
         /*
          *  Set up spotifyLibrary class to be testet
          */
-        private SpotifyLibrary sp = null;
+        private Spotify sp = null;
 
         [TestInitialize]
         public void BeforeEachTestMethod()
         {
-            sp = new SpotifyLibrary();
+            sp = new Spotify();
 
         }
 
@@ -55,7 +55,6 @@ namespace SpotifyLibrary.Tests
 
             // Assert
             Assert.ThrowsException<ArgumentException>(() => sp.SongId = songId);
-
         }
 
 

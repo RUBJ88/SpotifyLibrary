@@ -6,7 +6,7 @@ namespace SpotifyLibrary
     /// <summary>
     /// The spotifyLibrary contains the following instencefiled, constructors, properties and ToString method 
     /// </summary>
-    public class SpotifyLibrary
+    public class Spotify
     {
         /// <summary>
         /// 
@@ -17,7 +17,7 @@ namespace SpotifyLibrary
         private string _artist; 
         private string _images; // must be maximum 10 char. long 
 
-        public SpotifyLibrary(int songId, string song, string genre, string artist, string images)
+        public Spotify(int songId, string song, string genre, string artist, string images)
         {
             _songID = songId;
             _songTitle = song;
@@ -26,7 +26,7 @@ namespace SpotifyLibrary
             _images = images;
         }
 
-        public SpotifyLibrary()
+        public Spotify()
         {
         }
 
