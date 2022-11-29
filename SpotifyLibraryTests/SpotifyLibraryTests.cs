@@ -23,88 +23,16 @@ namespace SpotifyLibrary.Tests
 
         }
 
-        /*
-         * Testing property songId
-         */
-
-        [TestMethod]
-        [DataRow(1)]
-        public void Test_SongId_Accept(int songId)
-        {
-            // Arrange
-            int expectedValue = songId;
-
-            // Act
-            sp.SongId = songId;
-            int actualValue = sp.SongId;
-
-            // Assert
-            Assert.AreEqual(expectedValue, actualValue);
-
-        }
-
-        // Error values -1 and -1000  
-        [TestMethod]
-        [DataRow(-1)]
-        [DataRow(-1000)]
-        public void Test_SongId_Not_Accept(int songId)
-        {
-            // Arrange - all in assert
-
-            // Act - all in assert
-
-            // Assert
-            Assert.ThrowsException<ArgumentException>(() => sp.SongId = songId);
-        }
-
-
 
         /*
-         * Testing property song id - between 0-10
-         */
+        * Testing property songTitel - at least 3 chars
+        */
 
-        // acceptable values 0 and 5 and 10
+        // acceptable values 3 chars and 4 chars
         [TestMethod]
-        [DataRow(0)]
-        [DataRow(10)]
-        public void Test_SongId_Value_Accept(int songId)
-        {
-            // Arrange
-            int expectedValue = songId;
-
-            // Act
-            sp.SongId = songId;
-            int actualValue = sp.SongId;
-
-            // Assert
-            Assert.AreEqual(expectedValue, actualValue);
-
-        }
-
-        // Error values -1 and 11  
-        [TestMethod]
-        [DataRow(-1)]
-        [DataRow(11)]
-        public void Test_SongId_Value_Not_Accept(int songid)
-        {
-            // Arrange - all in assert
-
-            // Act - all in assert
-
-            // Assert
-            Assert.ThrowsException<ArgumentException>(() => sp.SongId = songid );
-
-        }
-
-        /*
-  * Testing property songTitel - at least 10 chars
-  */
-
-        // acceptable values 10 chars and 15 chars
-        [TestMethod]
-        [DataRow("1")]
-        [DataRow("111111111111111111111111111111")]
-        public void Test_Accept(String songtitel)
+        [DataRow("123")]
+        [DataRow("1234")]
+        public void Test_SongTitel_Accept(String songtitel)
         {
             // Arrange
             String expectedValue = songtitel;
@@ -118,10 +46,9 @@ namespace SpotifyLibrary.Tests
 
         }
 
-        // Error values 9 chars  
         [TestMethod]
-        [DataRow("123456789")]
-        public void Test_songtitel_NotAccept1(String songtitel)
+        [DataRow("1")]
+        public void Test_Songtitel_NotAccept1(String songtitel)
         {
             // Arrange - all in assert
 
@@ -135,7 +62,7 @@ namespace SpotifyLibrary.Tests
         // Error values null and 10 spaces -> empty 
         [TestMethod]
         [DataRow(null)]
-        [DataRow("          ")]
+        [DataRow(" ")]
         public void Test_SongTitel_Not_Accept2(String songtitel)
         {
             // Arrange - all in assert
@@ -144,6 +71,145 @@ namespace SpotifyLibrary.Tests
 
             // Assert
             Assert.ThrowsException<ArgumentNullException>(() => sp.SongTitle = songtitel);
+
+        }
+
+        /*
+         *
+         * Testing property genre 10 char. long
+         *
+         * testing 
+         */
+
+        [TestMethod]
+        [DataRow("1234567891")]
+        [DataRow("1234")]
+        public void Test_Genre_Accept(String genre)
+        {
+            // Arrange
+            String expectedValue = genre;
+
+            // Act
+            sp.SongTitle = genre;
+            String actualValue = genre;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+
+        }
+
+
+        [TestMethod]
+        [DataRow("1")]
+        public void Test_Genre_Not_Accept1(String genre)
+        {
+            // Arrange - all in assert
+
+            // Act - all in assert
+
+            // Assert
+            Assert.ThrowsException<ArgumentException>(() => sp.Genre = genre);
+
+        }
+
+        // Error values null and 10 spaces -> empty 
+        [TestMethod]
+        [DataRow(null)]
+        [DataRow(" ")]
+        public void Test_Artist_Not_Accept2(String genre)
+        {
+            // Arrange - all in assert
+
+            // Act - all in assert
+
+            // Assert
+            Assert.ThrowsException<ArgumentNullException>(() => sp.Genre = genre);
+
+        }
+
+
+        /*
+         * Testing property artist
+         */
+
+        [TestMethod]
+        [DataRow("1234567891")]
+        [DataRow("1234")]
+        public void Test_Artist_Accept(String artist)
+        {
+            // Arrange
+            String expectedValue = artist;
+
+            // Act
+            sp.SongTitle = artist;
+            String actualValue = artist;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+
+        }
+
+        [TestMethod]
+        [DataRow("1")]
+        public void Test_Artist_Not_Accept1(String artist)
+        {
+            // Arrange - all in assert
+
+            // Act - all in assert
+
+            // Assert
+            Assert.ThrowsException<ArgumentException>(() => sp.Artist = artist);
+
+        }
+
+        // Error values null and 10 spaces -> empty 
+        [TestMethod]
+        [DataRow(null)]
+        [DataRow(" ")]
+        public void Test_genre_Not_Accept2(String genre)
+        {
+            // Arrange - all in assert
+
+            // Act - all in assert
+
+            // Assert
+            Assert.ThrowsException<ArgumentNullException>(() => sp.Genre = genre);
+
+        }
+
+        /*
+         * Testing property imsges
+         */
+
+        [TestMethod]
+        [DataRow("1234567891")]
+        [DataRow("1234")]
+        public void Test_images_Accept(String images)
+        {
+            // Arrange
+            String expectedValue = images;
+
+            // Act
+            sp.SongTitle = images;
+            String actualValue = images;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+
+        }
+
+        // Error values null and 10 spaces -> empty 
+        [TestMethod]
+        [DataRow(null)]
+        [DataRow(" ")]
+        public void Test_Images_Not_Accept2(String images )
+        {
+            // Arrange - all in assert
+
+            // Act - all in assert
+
+            // Assert
+            Assert.ThrowsException<ArgumentNullException>(() => sp.Images = images);
 
         }
 
@@ -156,9 +222,19 @@ namespace SpotifyLibrary.Tests
 
 
 
-
-
-
-
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

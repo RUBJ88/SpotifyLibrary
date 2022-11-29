@@ -33,31 +33,28 @@ namespace SpotifyLibrary
         public int SongId
         {
             get => _songID;
-            set
-            {
-                if (value > 1)
-                {
-                    throw new ArgumentException("SongID must be minimum 1 or higher");
-                }
-                _songID = value;
-            }
+            set => _songID = value;
         }
-        
+
+
         public string SongTitle
         {
             get => _songTitle;
             set
             {
-                if (string.IsNullOrEmpty(value))
+
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException("Must be maximum 30 char. long");
+                    throw new ArgumentNullException("SongTitel must be at least 2 char. long");
 
                 }
-                if (value.Length <= 30)
+                if (value.Length < 2)
                 {
-                    throw new ArgumentException("Must be maximum 30 char. long");
+                        throw new ArgumentException("SongTitel must be at least 3 char. long");
                 }
                 _songTitle = value;
+                
+   
             }
         }
         
@@ -66,12 +63,12 @@ namespace SpotifyLibrary
             get => _genre;
             set
             {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentNullException("Must be maximum 10 char. long");
 
                 }
-                if (value.Length <= 10)
+                if (value.Length <10)
                 {
                     throw new ArgumentException("Must be maximum 10 char. long");
                 }
@@ -103,12 +100,12 @@ namespace SpotifyLibrary
             get => _images;
             set
             {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentNullException("Must be maximum 10 char. long");
 
                 }
-                if (value.Length <= 10)
+                if (value.Length < 10)
                 {
                     throw new ArgumentException("Must be maximum 10 char. long");
                 }
